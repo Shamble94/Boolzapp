@@ -86,3 +86,9 @@ ul{
 .clearfix {
     clear: right;
   }
+.icon-dropdown{
+    opacity: 0
+}
+.message-hover:hover .icon-dropdown{
+    opacity: 1
+}

@@ -207,6 +207,13 @@ createApp({
                 }
                 
             });
+        },
+        deleteMsg(index){
+            let conferma = confirm("Sei sicuro di voler eliminare questa task?")
+            if(conferma){
+
+                this.contacts[this.activeChat].messages.splice(index,1);
+            }
         }
     }
 }).mount(`#app`);
