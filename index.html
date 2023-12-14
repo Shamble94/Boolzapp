@@ -43,27 +43,27 @@
 
                     <div class="item">
                         <ul class="list-unstyled ">
-                            <li v-for="contact   in contacts" class="border-bottom p-2">
+                            <li v-for="contact  in contacts" class="border-bottom p-2 cursor " @click="changeChat(index)" >
                                 <img :src="contact.avatar" :key="index" alt="michele"/>
                                 <span class="m-3"> {{ contact.name }}</span>
+                                <span > 12:00</span>
+                               
                             </li>
                         </ul>
                     </div>
                     
                 
                 </div>
+
+
                 <div class="col-7 p-0">
                     <div class="content-head d-flex bg-grey p-2 align-items-center ">
                         
                         <div>
-                            <img src="./img/avatar_1.jpg" alt="" class="mx-2">
-                            <span> Michele</span>
-
-                        </div>
-
-                        
-                       
-                       
+                            <img src="./img/avatar_1.jpg" :key="index" alt="" class="mx-2">
+                            <span  v-for="contact  in contacts[activeChat]"> {{ contact.name }}</span>
+                            
+                        </div>                                                               
                         <div>
                             <ul class="list-unstyled d-flex  gap-3 align-items-center m-2">
                                 <li><i class="fa-solid fa-magnifying-glass"></i></li>
@@ -72,24 +72,24 @@
                             </ul>
                         </div>
                     </div>
+
                     <div class="sfondo-chat">
-                        <div class="d-flex justify-content-end ">
-                            <h6 class="user-text mx-5">Hai portato a spasso il cane?</h6>
-                        </div>
-                        <div  class="d-flex justify-content-end"> 
-
-                            <h6 class="user-text mx-5">Ricordati di stendere i panni</h6>
-                        </div>
-                        <div  class="d-flex "> 
-
-                            <h6 class="computer-text mx-5 float-left">Tutto fatto!</h6>
-                        </div>
+                        <div v-for="message in contacts[activeChat].messages"  :class="message.status" class="clearfix">
+                            <span >
+                                {{ message.message }}
+                            </span>
+                            <div class="font-small">
+                                {{  message.date }}
+                            </div>
+                        </div>                                                                                                         
                     </div>
+
                     <div class="d-flex align-items-center bg-grey content-head "> 
                         <i class="fa-regular fa-face-smile mx-3"></i>
                         <input type="text" class="form-control form-control-sm" placeholder="Inserisci il tuo messaggio">
                         <i class="fa-solid fa-microphone-lines mx-3"></i>
                     </div>
+
                 </div>
             </div>
         </div>
