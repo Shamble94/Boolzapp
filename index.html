@@ -43,27 +43,25 @@
 
                     <div class="item">
                         <ul class="list-unstyled ">
-                            <li v-for="contact  in contacts" class="border-bottom p-2 cursor " @click="changeChat(index)" >
-                                <img :src="contact.avatar" :key="index" alt="michele"/>
-                                <span class="m-3"> {{ contact.name }}</span>
-                                <span > 12:00</span>
-                               
-                            </li>
-                        </ul>
-                    </div>
-                    
-                
+                            <li v-for="(contact, index)  in contacts" class="border-bottom p-2 cursor " :key="index" @click="changeChat(index)" >
+                                <img :src="contact.avatar" :key="index" alt="ProfilePicture"/>
+                                <span class="m-3"> {{ contact.name }}</span>                               
+                            </li>                                                         
+                        </ul>                       
+                    </div>                
                 </div>
 
 
                 <div class="col-7 p-0">
                     <div class="content-head d-flex bg-grey p-2 align-items-center ">
-                        
-                        <div>
-                            <img src="./img/avatar_1.jpg" :key="index" alt="" class="mx-2">
-                            <span  v-for="contact  in contacts[activeChat]"> {{ contact.name }}</span>
-                            
-                        </div>                                                               
+                        <div>                           
+                            <div>
+                                <img :src="contacts[activeChat].avatar" :key="index"  class="mx-2" >                              
+                                <span> {{ contacts[activeChat].name }}</span>
+                                <span class="font-small"></span>
+                            </div>                          
+                        </div>
+                                                                             
                         <div>
                             <ul class="list-unstyled d-flex  gap-3 align-items-center m-2">
                                 <li><i class="fa-solid fa-magnifying-glass"></i></li>
@@ -74,7 +72,7 @@
                     </div>
 
                     <div class="sfondo-chat">
-                        <div v-for="message in contacts[activeChat].messages"  :class="message.status" class="clearfix">
+                        <div v-for="(message, index) in contacts[activeChat].messages"  :key="index" :class="message.status" class="clearfix">
                             <span >
                                 {{ message.message }}
                             </span>
@@ -86,7 +84,7 @@
 
                     <div class="d-flex align-items-center bg-grey content-head "> 
                         <i class="fa-regular fa-face-smile mx-3"></i>
-                        <input type="text" class="form-control form-control-sm" placeholder="Inserisci il tuo messaggio">
+                        <input type="text" class="form-control form-control-sm" placeholder="Inserisci il tuo messaggio" @keyup.enter="addMsg" v-model="newMsg">
                         <i class="fa-solid fa-microphone-lines mx-3"></i>
                     </div>
 

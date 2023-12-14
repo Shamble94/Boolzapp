@@ -5,7 +5,7 @@ createApp({
     data(){
         return{
             activeChat: 0,
-            index: 0,
+            newMsg: ``,
             contacts: [
                 {
                     name: 'Michele',
@@ -174,7 +174,29 @@ createApp({
     methods:{
         changeChat(index){
             this.activeChat = index;
-        }
+            
+        },
+        addMsg(){
+            let obj = {
+                date: '',
+                message: this.newMsg,
+                status: 'sent'
+            };
+            
+            this.contacts[this.activeChat].messages.push(obj);
+            this.newMsg = ``
+            
+            setTimeout(() =>{
+                obj = {
+                    date: '',
+                    message: `ok`,
+                    status: 'received'
+                };
+                this.contacts[this.activeChat].messages.push(obj);
+              
+            },2000)
+
+        },
     }
 }).mount(`#app`);
 
