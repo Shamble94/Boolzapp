@@ -1,9 +1,9 @@
 const { createApp } = Vue;
 
-
 createApp({
     data(){
         return{
+            
             activeChat: 0,
             newMsg: ``,
             search: ``,
@@ -195,7 +195,7 @@ createApp({
                 };
                 this.contacts[this.activeChat].messages.push(obj);
               
-            },2000)
+            },1000)
 
         },
         searchContact(){
@@ -213,8 +213,21 @@ createApp({
             if(conferma){
 
                 this.contacts[this.activeChat].messages.splice(index,1);
+               
             }
-        }
-    }
+        },
+        showLastMsg(index){
+            let msg = this.contacts[index].messages;
+            let lastMsg = msg[msg.length - 1];
+            return lastMsg.message
+        },
+        showMsgDate(index){
+            let date = this.contacts[index].messages;
+            let lastDate = date[date.length - 1];
+            return lastDate.date
+        } 
+    },
+   
+    
 }).mount(`#app`);
 

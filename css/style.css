@@ -37,7 +37,7 @@ img{
 .sfondo-chat{
     height: calc(100% - 120px);
     background-image: url("../img/mine.jpg");
-    
+    overflow-y: auto;
 }
 ul{
     margin-bottom: 0px;
@@ -91,4 +91,7 @@ ul{
 }
 .message-hover:hover .icon-dropdown{
     opacity: 1
+}
+.overfl{
+    overflow-y: auto;
 }
