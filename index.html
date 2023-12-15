@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js" integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
@@ -45,11 +45,11 @@
                     <div class="item ">
                         <ul class="list-unstyled ">
                             <li  v-for="(contact, index)  in contacts" class="border-bottom p-2 cursor " :key="index" v-show="contact.visible" @click="changeChat(index)"   >
-                                <div>
+                                <div class=>
                                     <img :src="contact.avatar"  alt="ProfilePicture"/>
                                     
                                     <span class="m-3"> {{ contact.name }} </span>
-                                    <span class="text-end font-small"> {{ showMsgDate(index) }}</span>
+                                    <span class="font-small"> {{ showMsgDate(index) }}</span>
                                     <div class="font-small"> {{ showLastMsg(index) }}</div>                 
 
                                 </div>
@@ -63,10 +63,10 @@
                 <div class="col-7 p-0">
                     <div class="content-head d-flex bg-grey p-2 align-items-center ">
                         <div>                           
-                            <div>
-                                <img :src="contacts[activeChat].avatar"   class="mx-2" >                              
-                                <span> {{ contacts[activeChat].name }}</span>
-                                <span class="font-small">Ultimo accesso oggi alle 12:00 </span>
+                            <div >
+                                <img :src="contacts[activeChat].avatar"   class="mx-2" > 
+                                <span> {{ contacts[activeChat].name }}</span>                                                              
+                                <div class="font-small">Ultimo accesso oggi alle 12:00 </div>                                                        
                             </div>                          
                         </div>
                                                                              
@@ -119,7 +119,7 @@
 
     </div>
 
-    <script src="luxon.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4/build/global/luxon.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/script.js" type="text/javascript"></script>ù
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

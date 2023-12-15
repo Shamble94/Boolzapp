@@ -1,5 +1,5 @@
 const { createApp } = Vue;
-
+const DateTime = luxon.DateTime;
 createApp({
     data(){
         return{
@@ -179,7 +179,7 @@ createApp({
         },
         addMsg(){
             let obj = {
-                date: '',
+                date: DateTime.local().toFormat('T'),
                 message: this.newMsg,
                 status: 'sent'
             };
@@ -189,7 +189,7 @@ createApp({
             
             setTimeout(() =>{
                 obj = {
-                    date: '',
+                    date: DateTime.local().toFormat('T'),
                     message: `ok`,
                     status: 'received'
                 };
