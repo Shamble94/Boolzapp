@@ -209,22 +209,32 @@ createApp({
             });
         },
         deleteMsg(index){
-            let conferma = confirm("Sei sicuro di voler eliminare questa task?")
+            let conferma = confirm("Sei sicuro di voler eliminare questo messaggio?")
             if(conferma){
 
                 this.contacts[this.activeChat].messages.splice(index,1);
                
             }
+        
+           
+
+            
         },
         showLastMsg(index){
-            let msg = this.contacts[index].messages;
-            let lastMsg = msg[msg.length - 1];
-            return lastMsg.message
+            if (this.contacts[index].messages.length > 0){
+                let msg = this.contacts[index].messages;
+                let lastMsg = msg[msg.length - 1];
+                return lastMsg.message
+
+            }
+
         },
         showMsgDate(index){
+            if (this.contacts[index].messages.length > 0){
             let date = this.contacts[index].messages;
             let lastDate = date[date.length - 1];
-            return lastDate.date
+            return lastDate.date;
+            }
         } 
     },
    
